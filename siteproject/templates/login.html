@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        .login_form{
+
+            margin:30px 500px;
+            padding:30px;
+            box-sizing:border-box;
+            background-color:white;
+            }
+
+        .form_login input{
+            padding:10px;
+            width:300px;
+
+            border:1px solid blue;
+            box-sizing:border-box;
+
+            }
+        .form_login label{
+            text-align:left;
+            font-weight:bold;
+            padding:20px 5px;
+            }
+        .form_login button{
+            padding:10px;
+            text-align:center;
+            width:300px;
+            margin:20px 2px;
+            background-color:LightGray;
+            font-weight:bold;
+            }
+
+
+
+    </style>
+</head>
+<body style="background-image:url({% static 'images/about.jpg' %})">
+<h2 style="text-align:center;font-family:sans-serif;color:White">LOG IN</h2>
+
+    <div class="login_form">
+
+        <form action="login" class="form_login" method="post">
+            {% csrf_token %}
+            <label>Username</label><br>
+            <input type="text" name="username" placeholder="Enter your username"><br>
+            <label>Password</label><br>
+            <input type="password" name="password" placeholder="Enter your password"><br>
+
+            <button type="submit">Log in</button>
+        </form>
+    </div>
+
+    {% for msg in messages %}
+    <h2 style="text-align:center;color:White;">{{msg}}</h2>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style>
+        .reg_form{
+
+            margin:30px 500px;
+            padding:30px;
+            box-sizing:border-box;
+            background-color:white;
+            }
+
+        .form_reg input{
+            padding:10px;
+            width:300px;
+
+            border:1px solid blue;
+            box-sizing:border-box;
+
+            }
+        .form_reg label{
+            text-align:left;
+            font-weight:bold;
+            padding:20px 5px;
+            }
+        .form_reg button{
+            padding:10px;
+            text-align:center;
+            width:300px;
+            margin:20px 2px;
+            background-color:LightGray;
+            font-weight:bold;
+            }
+
+
+    </style>
+</head>
+<body style="background-image:url({% static 'images/about.jpg' %})">
+<h2 style="text-align:center;font-family:sans-serif;color:White">Registration</h2>
+
+    <div class="reg_form">
+
+        <form action="register" class="form_reg" method="post">
+            {% csrf_token %}
+            <label>Username</label><br>
+            <input type="text" name="username" placeholder="Enter your username"><br>
+            <label>First Name</label><br>
+            <input type="text" name="first_name" placeholder="Enter your first name"><br>
+            <label>Last Name</label><br>
+            <input type="text" name="last_name" placeholder="Enter your last name"><br>
+            <label>Email</label><br>
+            <input type="email" name="email" placeholder="Enter your email id"><br>
+            <label>Password</label><br>
+            <input type="password" name="password" placeholder="Enter your password"><br>
+            <label>Confirm Password</label><br>
+            <input type="password" name="password1" placeholder="Confirm your password"><br>
+            <button type="submit">REGISTER</button>
+        </form>
+    </div>
+
+    {% for msg in messages %}
+    <h2 style="text-align:center;color:White;">{{msg}}</h2>
+    {% endfor %}
+</body>
+</html>
