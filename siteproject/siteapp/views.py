@@ -8,4 +8,4 @@ def demo(request):
     obj=Place.objects.all()
     obj1=People.objects.all()
 
-    return render(request,"about.html",{'cd result':obj,'result1':obj1})
+    return render(request,"about.html",{'result':obj,'result1':obj1})
